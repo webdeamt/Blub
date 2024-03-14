@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Bhai Ka Bulb | Animated Bulb</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column; /* Align items vertically */
+            height: 100vh;
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(186, 169, 255, 0.671);
+            animation-name: bgChange;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes bgChange{
+            0%{
+                background-color: #ea00ff;
+            }
+            10% {
+                background-color: aqua;
+            }
+            20% {
+                background-color: rgb(255, 186, 159);
+            }
+            30% {
+                background-color: rgb(255, 253, 154);
+            }
+            40% {
+                background-color: rgb(169, 255, 183);
+            }
+            50% {
+                background-color: rgb(128, 202, 252);
+            }
+            60% {
+                background-color: rgb(235, 163, 255);
+            }
+            70% {
+                background-color: rgb(216, 255, 186);
+            }
+            80% {
+                background-color: rgb(255, 154, 201);
+            }
+            90% {
+                background-color: rgb(113, 255, 160);
+            }
+            100% {
+                background-color: rgb(255, 162, 162);
+            }
+        }
+        p{
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            
+            height: 55px;
+            width: 150px;
+            font-weight: 400;
+            font-family: fantasy;
+            font-size: x-large;
+            letter-spacing: 2px;
+            border-radius: 30px;
+            border: none;
+            color: #ffffff;
+            
+
+            background-image: linear-gradient(to right, #f2ff00, #ff3700);
+            box-shadow: inset 0px -1px 20px 3px red;
+            margin-top: 20px; /* Add margin to separate buttons */
+        }
+        button:active{
+            color: rgba(0, 0, 0, 0.599);
+            background-image: linear-gradient(to right , hsl(334, 100%, 80%), hwb(220 35% 0%) , #fff , red);
+            box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.885);
+            margin-top: 20px;
+            transition: background-image 1s  ease-in-out;
+
+        }
+
+        #myImage {
+            filter: drop-shadow(0px -1px 20px 3px red);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img id="myImage" src="pic_bulboff.gif" alt="" width="100" height="180">
+        <p>
+            <button type="button" onclick="light(0)"> Button off</button>
+            <button type="button" onclick="light(1)">Button on</button>
+        </p>
+    </div>
+
+    <script>
+        function light(sw) {
+            var pic;
+            let bg = document.getElementById('myImage');
+            if (sw == 0) {
+                pic = "pic_bulboff.gif"
+                bg.style.filter = "none";
+            } else {
+                pic = "pic_bulbon.gif"
+                bg.style.filter = "drop-shadow(0 0 4.75rem #f2ff00)";
+            }
+            document.getElementById('myImage').src = pic;
+        }
+    </script>
+</body>
+
+</html>
